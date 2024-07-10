@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged, signInWithCredential } from 'firebase/auth'
-import { getFunctions, httpsCallable } from 'firebase/functions'
+import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'firebase/functions'
+import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore'
 import GoogleOneTapLogin from 'react-google-one-tap-login'
 
 const app = initializeApp({
@@ -14,7 +15,13 @@ const app = initializeApp({
 
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider()
+const firestore = getFirestore(app)
 const functions = getFunctions(app)
 const test = httpsCallable(functions, 'test')
+
+if (window.location.hostname === '127.0.0.1') {
+	// connectFirestoreEmulator(firestore, '127.0.0.1', 8080)
+	connectFunctionsEmulator(functions, '127.0.0.1', 5001)
+}
 
 export { auth, provider, GoogleAuthProvider, test, signInWithRedirect, signOut, onAuthStateChanged, signInWithCredential, GoogleOneTapLogin }
