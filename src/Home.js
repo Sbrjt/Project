@@ -4,7 +4,7 @@ import { test } from './fb'
 
 function Home() {
 	const [user, setUser] = useState('')
-	let installPrompt
+	let installPrompt = null
 
 	onAuthStateChanged(auth, (usr) => {
 		if (usr) {
@@ -18,6 +18,8 @@ function Home() {
 
 	// show install pop-up if app not already installed
 	async function install() {
+		console.log(installPrompt)
+
 		if (installPrompt) {
 			await installPrompt.prompt()
 			const { outcome } = await installPrompt.userChoice
