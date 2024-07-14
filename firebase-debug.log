@@ -1,0 +1,144 @@
+[debug] [2024-07-14T16:10:39.910Z] ----------------------------------------------------------------------
+[debug] [2024-07-14T16:10:39.917Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-07-14T16:10:39.918Z] CLI Version:   13.11.2
+[debug] [2024-07-14T16:10:39.919Z] Platform:      win32
+[debug] [2024-07-14T16:10:39.919Z] Node Version:  v21.7.3
+[debug] [2024-07-14T16:10:39.920Z] Time:          Sun Jul 14 2024 21:40:39 GMT+0530 (India Standard Time)
+[debug] [2024-07-14T16:10:39.920Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-14T16:10:39.929Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-07-14T16:10:40.254Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-14T16:10:40.255Z] > authorizing via signed-in user (champa.281982@gmail.com)
+[debug] [2024-07-14T16:10:40.782Z] java version "22.0.1" 2024-04-16
+
+[debug] [2024-07-14T16:10:40.783Z] Java(TM) SE Runtime Environment (build 22.0.1+8-16)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)
+
+[debug] [2024-07-14T16:10:40.828Z] Parsed Java major version: 22
+[info] i  emulators: Starting emulators: functions, firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, hosting"}}
+[debug] [2024-07-14T16:10:40.865Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-14T16:10:40.866Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-14T16:10:40.866Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-14T16:10:40.866Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-14T16:10:40.867Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-07-14T16:10:40.885Z] [hub] writing locator at C:\Users\HP\AppData\Local\Temp\hub-proj3-8bf4f.json
+[debug] [2024-07-14T16:10:40.911Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-14T16:10:40.911Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-07-14T16:10:40.911Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-07-14T16:10:40.924Z] defaultcredentials: writing to file C:\Users\HP\AppData\Roaming\firebase\champa_281982_gmail.com_application_default_credentials.json
+[debug] [2024-07-14T16:10:40.929Z] Setting GAC to C:\Users\HP\AppData\Roaming\firebase\champa_281982_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\HP\\AppData\\Roaming\\firebase\\champa_281982_gmail.com_application_default_credentials.json"}}
+[debug] [2024-07-14T16:10:40.931Z] > refreshing access token with scopes: []
+[debug] [2024-07-14T16:10:40.934Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-07-14T16:10:40.934Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-14T16:10:41.101Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-07-14T16:10:41.102Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-07-14T16:10:41.463Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-07-14T16:10:41.463Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-14T16:10:41.485Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f/adminSdkConfig [none]
+[debug] [2024-07-14T16:10:42.273Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f/adminSdkConfig 200
+[debug] [2024-07-14T16:10:42.273Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f/adminSdkConfig {"projectId":"proj3-8bf4f","storageBucket":"proj3-8bf4f.appspot.com"}
+[debug] [2024-07-14T16:10:42.314Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-07-14T16:10:42.315Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2024-07-14T16:10:42.315Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\HP\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.7.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","proj3-8bf4f","--rules","C:\\Users\\HP\\OneDrive\\Desktop\\proj3\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\HP\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.7.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"proj3-8bf4f\",\"--rules\",\"C:\\\\Users\\\\HP\\\\OneDrive\\\\Desktop\\\\proj3\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2024-07-14T16:10:47.903Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/proj3-8bf4f/sites 
+[debug] [2024-07-14T16:10:50.227Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/proj3-8bf4f/sites 200
+[debug] [2024-07-14T16:10:50.228Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/proj3-8bf4f/sites {"sites":[{"name":"projects/proj3-8bf4f/sites/proj3-8bf4f","defaultUrl":"https://proj3-8bf4f.web.app","appId":"1:649235921586:web:36597201f19d0ffe02e7ab","type":"DEFAULT_SITE"}]}
+[debug] [2024-07-14T16:10:50.229Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f/webApps/1:649235921586:web:36597201f19d0ffe02e7ab/config [none]
+[debug] [2024-07-14T16:10:51.646Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f/webApps/1:649235921586:web:36597201f19d0ffe02e7ab/config 200
+[debug] [2024-07-14T16:10:51.647Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f/webApps/1:649235921586:web:36597201f19d0ffe02e7ab/config {"projectId":"proj3-8bf4f","appId":"1:649235921586:web:36597201f19d0ffe02e7ab","storageBucket":"proj3-8bf4f.appspot.com","apiKey":"AIzaSyBXWlTpsD1IwNVk4eR7xLLwawRKbXQv8ZI","authDomain":"proj3-8bf4f.firebaseapp.com","messagingSenderId":"649235921586"}
+[debug] [2024-07-14T16:10:51.655Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f [none]
+[debug] [2024-07-14T16:10:52.117Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f 200
+[debug] [2024-07-14T16:10:52.117Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proj3-8bf4f {"projectId":"proj3-8bf4f","projectNumber":"649235921586","displayName":"proj3","name":"projects/proj3-8bf4f","resources":{"hostingSite":"proj3-8bf4f"},"state":"ACTIVE","etag":"1_dca6ee8f-e1cb-4d6e-bb06-48f9c477bf8b"}
+[info] i  hosting[proj3-8bf4f]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[proj3-8bf4f]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2024-07-14T16:10:52.186Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-07-14T16:10:52.187Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-07-14T16:10:52.187Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\HP\\.cache\\firebase\\emulators\\ui-v1.12.1\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\HP\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.12.1\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-07-14T16:10:52.653Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-07-14T16:10:52.654Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\HP\OneDrive\Desktop\proj3\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\HP\\OneDrive\\Desktop\\proj3\\functions\" for Cloud Functions..."}}
+[debug] [2024-07-14T16:10:52.844Z] Validating nodejs source
+[debug] [2024-07-14T16:10:57.109Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true,
+  "type": "module"
+}
+[debug] [2024-07-14T16:10:57.110Z] Building nodejs source
+[debug] [2024-07-14T16:10:57.112Z] Failed to find version of module node: reached end of search path C:\Users\HP\OneDrive\Desktop\proj3\functions\node_modules
+[warn] !  functions: Your requested "node" version "22" doesn't match your global version "21". Using node@21 from host. 
+[debug] [2024-07-14T16:10:57.120Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-07-14T16:10:57.147Z] Found firebase-functions binary at 'C:\Users\HP\OneDrive\Desktop\proj3\functions\node_modules\.bin\firebase-functions'
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:10:57 +0000] "GET / HTTP/1.1" 404 139 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:10:57 +0000] \"GET / HTTP/1.1\" 404 139 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] Serving at port 8473
+
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:00 +0000] "GET / HTTP/1.1" 404 139 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:00 +0000] \"GET / HTTP/1.1\" 404 139 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[debug] [2024-07-14T16:11:01.019Z] Got response from /__/functions.yaml {"endpoints":{"test":{"platform":"gcfv1","labels":{},"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"callableTrigger":{},"entryPoint":"test"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] +  functions: Loaded functions definitions from source: test. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: test."}}
+[info] +  functions[us-central1-test]: http function initialized (http://127.0.0.1:5001/proj3-8bf4f/us-central1/test). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/proj3-8bf4f/us-central1/test)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Firestore │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Hosting   │ 127.0.0.1:5000 │ n/a                             │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:09 +0000] "GET / HTTP/1.1" 200 578 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:09 +0000] \"GET / HTTP/1.1\" 200 578 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:10 +0000] "GET /static/css/main.e6c13ad2.css HTTP/1.1" 200 337 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:10 +0000] \"GET /static/css/main.e6c13ad2.css HTTP/1.1\" 200 337 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:10 +0000] "GET /static/js/main.909f42e7.js HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:10 +0000] \"GET /static/js/main.909f42e7.js HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:11 +0000] "GET /img/logo512.png HTTP/1.1" 200 9664 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:11 +0000] \"GET /img/logo512.png HTTP/1.1\" 200 9664 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] "GET /manifest.json HTTP/1.1" 200 851 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] \"GET /manifest.json HTTP/1.1\" 200 851 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] "GET /favicon.ico HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] \"GET /favicon.ico HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] "GET /img/logo192.png HTTP/1.1" 200 5347 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] \"GET /img/logo192.png HTTP/1.1\" 200 5347 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[info] i  hosting: 127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] "GET /img/screenshot2.jpg HTTP/1.1" 200 102662 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [14/Jul/2024:16:11:12 +0000] \"GET /img/screenshot2.jpg HTTP/1.1\" 200 102662 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0\""}}
+[debug] [2024-07-14T16:11:30.103Z] Received signal SIGINT (Ctrl-C) 1
+[info]  
+[info] i  emulators: Received SIGINT (Ctrl-C) for the first time. Starting a clean shutdown. 
+[info] i  emulators: Please wait for a clean shutdown or send the SIGINT (Ctrl-C) signal again to stop right now. 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  ui: Stopping Emulator UI {"metadata":{"emulator":{"name":"ui"},"message":"Stopping Emulator UI"}}
+[warn] !  Emulator UI has exited upon receiving signal: SIGINT 
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hosting: Stopping Hosting Emulator {"metadata":{"emulator":{"name":"hosting"},"message":"Stopping Hosting Emulator"}}
+[info] i  firestore: Stopping Firestore Emulator {"metadata":{"emulator":{"name":"firestore"},"message":"Stopping Firestore Emulator"}}
+[warn] !  Firestore Emulator has exited upon receiving signal: SIGINT 
+[info] i  eventarc: Stopping Eventarc Emulator {"metadata":{"emulator":{"name":"eventarc"},"message":"Stopping Eventarc Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[info] i  logging: Stopping Logging Emulator {"metadata":{"emulator":{"name":"logging"},"message":"Stopping Logging Emulator"}}

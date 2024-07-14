@@ -12,9 +12,9 @@
 		"react-scripts": "5.0.1"
 	},
 	"scripts": {
-		"start": "firebase emulators:start",
+		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"dev": "concurrently \" npm start \" \"watch \\\"npm run build\\\" src\""
+		"dev": "concurrently \" firebase emulators:start \" \"watch \\\"npm run build\\\" src\""
 	},
 	"devDependencies": {
 		"concurrently": "^8.2.2",
