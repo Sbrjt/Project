@@ -20,10 +20,10 @@ function Navbar() {
 					</div>
 					<div className='offcanvas-body'>
 						<div className='navbar-nav justify-content-end flex-grow-1 pe-3'>
-							<a className='nav-link active' href='#'>
+							<a className='nav-link active' href='/home'>
 								Home
 							</a>
-							<a className='nav-link' href='#'>
+							<a className='nav-link' href='/member'>
 								Members
 							</a>
 							<Login className='nav-link' />

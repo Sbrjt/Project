@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { auth, onAuthStateChanged } from './fb'
 import { test } from './fb'
 
-function Cover() {
+function Home() {
 	const [user, setUser] = useState('')
 	let installPrompt
 
@@ -45,4 +45,4 @@ function Cover() {
 	)
 }
 
-export default Cover
+export default Home
