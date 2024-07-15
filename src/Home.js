@@ -13,6 +13,7 @@ function Home() {
 	})
 
 	window.addEventListener('beforeinstallprompt', (e) => {
+		e.preventDefault()
 		installPrompt = e
 	})
 
