@@ -4,7 +4,7 @@ import { test } from './fb'
 
 function Home() {
 	const [user, setUser] = useState('')
-	let installPrompt
+	let installPrompt = null
 
 	onAuthStateChanged(auth, (usr) => {
 		if (usr) {
