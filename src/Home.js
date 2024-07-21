@@ -20,7 +20,10 @@ function Home() {
 				<p className='lead fw-normal'>{user ? `Welcome 🎉` : `Plz login :)`}</p>
 				<div className='d-grid gap-2 d-sm-flex justify-content-sm-center'>
 					<button onClick={() => test().then((res) => console.log(res))} className='btn btn-primary btn-lg px-4 gap-3'>
-						Test backend
+						Get Food
+					</button>
+					<button onClick={() => test().then((res) => console.log(res))} className='btn btn-primary btn-lg px-4 gap-3'>
+						Give Food
 					</button>
 				</div>
 			</div>
