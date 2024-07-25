@@ -17,13 +17,10 @@ Dir structure:
     ...
 
 
-To run locally: `npm run dev`
+To run react server: `npm start`
 
-To enable firestore local emulator, uncomment following line in `src/fb.js`
+To firebase emulator: `npm run dev`
 
-    if (window.location.hostname === '127.0.0.1') {
-    	// connectFirestoreEmulator(firestore, '127.0.0.1', 8080)
-    	connectFunctionsEmulator(functions, '127.0.0.1', 5001)
-    }
+To enable firestore local emulator, uncomment `connectFirestoreEmulator` in `src/fb.js`.
 
 
