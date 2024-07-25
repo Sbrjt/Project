@@ -1,5 +1,14 @@
 import { useState } from 'react'
-import { auth, provider, signInWithRedirect, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithCredential, GoogleOneTapLogin } from './fb'
+import {
+	auth,
+	provider,
+	signInWithRedirect,
+	signOut,
+	onAuthStateChanged,
+	GoogleAuthProvider,
+	signInWithCredential,
+	GoogleOneTapLogin
+} from './fb'
 
 function Login() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true)
@@ -22,7 +31,7 @@ function Login() {
 
 	return (
 		<>
-			{isLoggedIn && (
+			{/* {isLoggedIn && (
 				<GoogleOneTapLogin
 					googleAccountConfigs={{
 						callback: async (res) => {
@@ -37,7 +46,7 @@ function Login() {
 			</button>
 			<button onClick={logout} className={`btn btn-outline-secondary ${isLoggedIn ? 'd-none' : ''}`}>
 				Log out
-			</button>
+			</button> */}
 		</>
 	)
 }
