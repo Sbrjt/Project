@@ -23,4 +23,10 @@ To firebase emulator: `npm run dev`
 
 To enable firestore local emulator, uncomment `connectFirestoreEmulator` in `src/fb.js`.
 
+---
+
+https://visgl.github.io/react-map-gl/docs/api-reference/map
+
+https://console.firebase.google.com/u/0/project/proj3-8bf4f/overview
+
 
