@@ -23,7 +23,7 @@ To firebase emulator: `npm run dev`
 
 To enable firestore local emulator, uncomment `connectFirestoreEmulator` in `src/fb.js`.
 
-[Use location]([url](https://youtu.be/MNlbYwlLPWY): 22.964006, 88.524224
+[Use location](https://youtu.be/MNlbYwlLPWY): 22.964006, 88.524224
 
 ---
 
