@@ -9,21 +9,20 @@ const test = https.onCall(async (data, context) => {
 	// 	throw new https.HttpsError('unauthenticated', 'Please login')
 	// }
 
-	try {
-		const { name, details, coords } = data
+	const { name, details, coords } = data
 
-		await firestore.collection('data').doc().set({
-			title: name,
-			latitude: coords.lat,
-			longitude: coords.lng,
-			description: details
-		})
-
-		return { message: 'Document successfully written!' }
-	} catch (err) {
-		console.error('Error writing document: ', err)
-		throw new https.HttpsError('internal', 'Error writing document')
+	const record = {
+		title: name,
+		latitude: coords.lat,
+		longitude: coords.lng,
+		description: details
 	}
+
+	await firestore.collection('data').doc().set(record)
+
+	console.log('New record added: ', JSON.stringify(record))
+
+	return { message: 'Document successfully written!' }
 })
 
 export { test }
