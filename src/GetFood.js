@@ -18,7 +18,7 @@ function GetFood() {
 	const geoControlRef = useRef()
 
 	return (
-		<div className='mx-auto my-5'>
+		<div className='mx-auto my-5 col-11'>
 			<h1>FoodMap</h1>
 			<h4>These places have food around you!</h4>
 			<div className='my-5'>
@@ -29,7 +29,7 @@ function GetFood() {
 						longitude: 85,
 						zoom: 2
 					}}
-					style={{ width: '70vw', height: '80vh' }}
+					style={{ width: 'auto', height: '80vh' }}
 					mapStyle='mapbox://styles/mapbox/dark-v11'
 					onLoad={() => {
 						geoControlRef.current?.trigger()

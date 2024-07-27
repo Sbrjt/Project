@@ -39,7 +39,7 @@ function GiveFood() {
 	}
 
 	return (
-		<div className='mx-auto my-5'>
+		<div className='mx-auto my-5 col-lg-8 col-md-9 col-sm-10 col-11'>
 			<form onSubmit={handleFormSubmit}>
 				<h1>Donate food 🍪</h1>
 
@@ -49,7 +49,7 @@ function GiveFood() {
 						<i className='bi bi-person'></i>
 					</span>
 					<div className='form-floating'>
-						<input className='form-control' id='name' placeholder='' />
+						<input className='form-control' id='name' placeholder='' required />
 						<label htmlFor='name'>Name of organisation or person</label>
 					</div>
 				</div>
@@ -57,9 +57,9 @@ function GiveFood() {
 				{/* map */}
 				<div>
 					<div>
-						<p>Select your location: </p>
+						<p>Pick your location: </p>
 					</div>
-					<div className='mx-auto my-3 border rounded '>
+					<div className='mx-auto my-3 border rounded'>
 						{mapLoad && (
 							<Map
 								mapboxAccessToken='pk.eyJ1Ijoic2JyanQiLCJhIjoiY2x5eDhtenhqMTQ5YzJrc2JtZjZxM3F1ZiJ9.4cpjXQC8jPhho1eg47h1rQ'
@@ -69,7 +69,7 @@ function GiveFood() {
 									zoom: 15
 								}}
 								style={{
-									width: '70vw',
+									width: 'auto',
 									height: '80vh',
 									borderRadius: '0.3rem'
 								}}
@@ -98,7 +98,7 @@ function GiveFood() {
 						id='details'
 						style={{ height: '100px' }}
 					></textarea>
-					<label htmlFor='details'>More details</label>
+					<label htmlFor='details'>More details here...</label>
 				</div>
 
 				<button className='btn btn-lg btn-primary my-3'>Submit</button>
