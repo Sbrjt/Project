@@ -31,7 +31,7 @@ function Login() {
 
 	return (
 		<>
-			{/* {isLoggedIn && (
+			{isLoggedIn && (
 				<GoogleOneTapLogin
 					googleAccountConfigs={{
 						callback: async (res) => {
@@ -41,6 +41,7 @@ function Login() {
 					}}
 				/>
 			)}
+			{/*
 			<button onClick={login} className={`btn btn-outline-primary ${isLoggedIn ? '' : 'd-none'}`}>
 				Log in
 			</button>
