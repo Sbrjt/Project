@@ -73,7 +73,9 @@ function GiveFood() {
 									height: '80vh',
 									borderRadius: '0.3rem'
 								}}
-								mapStyle='mapbox://styles/mapbox/dark-v11/'
+								mapStyle={`mapbox://styles/mapbox/${
+									window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+								}-v11`}
 								onClick={handleMapClick}
 							>
 								<GeolocateControl

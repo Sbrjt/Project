@@ -30,7 +30,9 @@ function GetFood() {
 						zoom: 2
 					}}
 					style={{ width: 'auto', height: '80vh' }}
-					mapStyle='mapbox://styles/mapbox/dark-v11'
+					mapStyle={`mapbox://styles/mapbox/${
+						window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+					}-v11`}
 					onLoad={() => {
 						geoControlRef.current?.trigger()
 					}}
