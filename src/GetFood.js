@@ -1,3 +1,4 @@
+import { firestore, getDocs, collection } from './fb'
 import { useRef, useState } from 'react'
 import Map, {
 	NavigationControl,
@@ -7,29 +8,20 @@ import Map, {
 	Popup
 } from 'react-map-gl'
 
-const data = [
-	{
-		longitude: 88.370995,
-		latitude: 22.770993,
-		title: 'Mapbox',
-		description: 'Washington, D.C.'
-	},
-	{
-		longitude: 88.36997,
-		latitude: 22.770785,
-		title: 'Mapbox',
-		description: 'San Francisco, California'
-	}
-]
+let data = await getDocs(collection(firestore, 'data'))
+for (let i of data.docs) {
+	console.table(i.data())
+}
 
 function GetFood() {
 	const [selectedMarker, setSelectedMarker] = useState()
 	const geoControlRef = useRef()
 
 	return (
-		<>
-			<h1>These places have food around you!</h1>
-			<div className='mx-auto my-5'>
+		<div className='mx-auto my-5'>
+			<h1>FoodMap</h1>
+			<h4>These places have food around you!</h4>
+			<div className='my-5'>
 				<Map
 					mapboxAccessToken='pk.eyJ1Ijoic2JyanQiLCJhIjoiY2x5eDhtenhqMTQ5YzJrc2JtZjZxM3F1ZiJ9.4cpjXQC8jPhho1eg47h1rQ'
 					initialViewState={{
@@ -37,7 +29,7 @@ function GetFood() {
 						longitude: 85,
 						zoom: 2
 					}}
-					style={{ width: '90vw', height: '60vh' }}
+					style={{ width: '70vw', height: '80vh' }}
 					mapStyle='mapbox://styles/mapbox/dark-v11'
 					onLoad={() => {
 						geoControlRef.current?.trigger()
@@ -53,18 +45,21 @@ function GetFood() {
 					<FullscreenControl />
 
 					{/* add markers on the map from data */}
-					{data.map((point) => (
-						<Marker latitude={point.latitude} longitude={point.longitude}>
-							<div style={{ cursor: 'pointer' }} onClick={() => setSelectedMarker(point)}>
-								<img
-									src='/img/mapbox-icon.png'
-									width='50'
-									height='50'
-									className='d-inline-block align-text-top mx-2'
-								/>
-							</div>
-						</Marker>
-					))}
+					{data.docs.map((i) => {
+						const point = i.data()
+						return (
+							<Marker latitude={point.latitude} longitude={point.longitude}>
+								<div style={{ cursor: 'pointer' }} onClick={() => setSelectedMarker(point)}>
+									<img
+										src='/img/mapbox-icon.png'
+										width='50'
+										height='50'
+										className='d-inline-block align-text-top mx-2'
+									/>
+								</div>
+							</Marker>
+						)
+					})}
 
 					{/* display popup if marker is selected */}
 					{selectedMarker && (
@@ -80,7 +75,11 @@ function GetFood() {
 					)}
 				</Map>
 			</div>
-		</>
+			Get notified about nearby donators
+			<button className='btn btn-md  btn-outline-warning rounded-circle ms-4'>
+				<i className='bi bi-bell-fill fs-3'></i>
+			</button>
+		</div>
 	)
 }
 

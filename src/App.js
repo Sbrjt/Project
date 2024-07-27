@@ -25,7 +25,7 @@ function App() {
 					<Route path='/give' element={<GiveFood />} />
 					<Route path='*' element={<Home />} />
 				</Routes>
-				{/* <Footer /> */}
+				<Footer />
 			</div>
 		</Router>
 	)

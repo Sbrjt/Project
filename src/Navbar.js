@@ -51,13 +51,7 @@ function Navbar({ installPrompt }) {
 							<NavLink className='nav-link' to='/give'>
 								Donate
 							</NavLink>
-							<NavLink className='nav-link' to='/member'>
-								Members
-							</NavLink>
 							<Login className='nav-link' />
-							<a href='https://github.com/Sbrjt/Project' className='nav-link'>
-								<i className='bi bi-github'></i>
-							</a>
 							<button className='btn btn-outline-primary' onClick={install}>
 								Get app
 							</button>

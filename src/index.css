@@ -9,3 +9,7 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.mapboxgl-ctrl-bottom-right {
+	display: none !important;
+}
