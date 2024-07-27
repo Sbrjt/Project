@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker } from 'react-map-gl'
+import { test } from './fb'
 
 function GiveFood() {
 	const [coords, setCoords] = useState({ lat: null, lng: null })
@@ -23,10 +24,17 @@ function GiveFood() {
 	function handleFormSubmit(e) {
 		e.preventDefault()
 		const { name, details } = e.target.elements
+
 		console.table({
 			Name: name.value,
 			Location: coords.lat + ' ' + coords.lng,
 			Details: details.value
+		})
+
+		test({
+			name: name.value,
+			details: details.value,
+			coords: coords
 		})
 	}
 
