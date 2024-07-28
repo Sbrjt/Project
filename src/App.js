@@ -8,16 +8,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 
 function App() {
-	const [install, setInstall] = useState(null)
-
-	window.addEventListener('beforeinstallprompt', (e) => {
-		setInstall(e)
-	})
-
 	return (
 		<Router>
 			<div className='min-vh-100 d-flex flex-column justify-content-between'>
-				<Navbar installPrompt={install} />
+				<Navbar />
 				<Routes>
 					<Route path='/home' element={<Home />} />
 					<Route path='/member' element={<Member />} />

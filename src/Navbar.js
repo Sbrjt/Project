@@ -1,14 +1,21 @@
 import Login from './Login'
 import { NavLink } from 'react-router-dom'
 
-function Navbar({ installPrompt }) {
+let install = null
+
+window.addEventListener('beforeinstallprompt', (e) => {
+	install = e
+	console.log(install)
+})
+
+function Navbar() {
 	// show install pop-up if app not already installed
-	async function install() {
-		if (installPrompt) {
-			await installPrompt.prompt()
-			const { outcome } = await installPrompt.userChoice
+	async function handleInstall() {
+		if (install) {
+			await install.prompt()
+			const { outcome } = await install.userChoice
 			if (outcome === 'accepted') {
-				installPrompt = null
+				install = null
 			}
 		}
 	}
@@ -52,7 +59,7 @@ function Navbar({ installPrompt }) {
 								Donate
 							</NavLink>
 							<Login className='nav-link' />
-							<button className='btn btn-outline-primary' onClick={install}>
+							<button className='btn btn-outline-primary' onClick={handleInstall}>
 								Get app
 							</button>
 						</div>
