@@ -5,7 +5,6 @@ import GetFood from './GetFood'
 import GiveFood from './GiveFood'
 import Footer from './Footer'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { useState } from 'react'
 
 function App() {
 	return (

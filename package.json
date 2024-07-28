@@ -20,9 +20,10 @@
 		"dev": "concurrently \" firebase emulators:start \" \"watch \\\"npm run build\\\" src\""
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+		"@babel/plugin-transform-private-property-in-object": "^7.24.7",
 		"concurrently": "^8.2.2",
-		"watch": "^1.0.2",
-		"@babel/plugin-transform-private-property-in-object": "^7.24.7"
+		"watch": "^1.0.2"
 	},
 	"browserslist": {
 		"production": [
