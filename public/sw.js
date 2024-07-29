@@ -8,36 +8,42 @@ const {
 	precaching: { matchPrecache, precacheAndRoute }
 } = workbox
 
-// Cache page navigations (html) with a Network First strategy
+// TODO: precache
+
+// NetworkFirst for mapbox
 registerRoute(
-	({ request, url }) => request.mode === 'navigate',
+	({ url }) => url.origin === 'https://api.mapbox.com',
 	new NetworkFirst({
-		cacheName: 'pages',
+		cacheName: 'NetworkFirst'
+	})
+)
+
+// CacheFirst for images, bs, fonts
+registerRoute(
+	({ url, request }) =>
+		request.destination === 'image' ||
+		url.origin === 'https://stackpath.bootstrapcdn.com' ||
+		url.origin === 'https://cdn.jsdelivr.net' ||
+		url.origin === 'https://cdnjs.cloudflare.com' ||
+		url.origin === 'https://fonts.googleapis.com' ||
+		url.origin === 'https://fonts.gstatic.com',
+	new CacheFirst({
+		cacheName: 'CacheFirst',
 		plugins: [
-			new CacheableResponsePlugin({
-				statuses: [200]
+			new ExpirationPlugin({
+				maxAgeSeconds: 7 * 24 * 60 * 60 // 7 days
 			})
 		]
 	})
 )
 
-// Cache CSS, JS, Manifest, and Web Worker
+// StaleWhileRevalidate for html, js, css
 registerRoute(
-	({ request }) =>
-		request.destination === 'script' ||
-		request.destination === 'style' ||
-		request.destination === 'manifest' ||
-		request.destination === 'worker',
-	new NetworkFirst({
-		cacheName: 'static-assets',
-		plugins: [
-			new CacheableResponsePlugin({
-				statuses: [0, 200]
-			}),
-			new ExpirationPlugin({
-				maxEntries: 32,
-				maxAgeSeconds: 24 * 60 * 60 // 24 hours
-			})
-		]
+	({ request }) => request.mode === 'navigate' || request.destination === 'script' || request.destination === 'style' || request.destination === 'manifest' || request.destination === 'worker',
+	new StaleWhileRevalidate({
+		cacheName: 'StaleWhileRevalidate'
 	})
 )
+
+// mapbox creates its own cache mapbox-tile
+// persistentLocalCache has been used for firestore

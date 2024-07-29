@@ -8,7 +8,7 @@ import Map, {
 	Popup
 } from 'react-map-gl'
 
-let data = await getDocs(collection(firestore, 'data'))
+const data = await getDocs(collection(firestore, 'data'))
 for (let i of data.docs) {
 	console.table(i.data())
 }
