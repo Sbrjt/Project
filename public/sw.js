@@ -8,9 +8,9 @@ const {
 	precaching: { matchPrecache, precacheAndRoute }
 } = workbox
 
-// TODO: precache
+// // TODO: precache
 
-// NetworkFirst for mapbox
+// // NetworkFirst for mapbox
 registerRoute(
 	({ url }) => url.origin === 'https://api.mapbox.com',
 	new NetworkFirst({
@@ -18,7 +18,7 @@ registerRoute(
 	})
 )
 
-// CacheFirst for images, bs, fonts
+// // CacheFirst for images, bs, fonts
 registerRoute(
 	({ url, request }) =>
 		request.destination === 'image' ||
@@ -37,13 +37,41 @@ registerRoute(
 	})
 )
 
-// StaleWhileRevalidate for html, js, css
+// // StaleWhileRevalidate for html, js, css
 registerRoute(
-	({ request }) => request.mode === 'navigate' || request.destination === 'script' || request.destination === 'style' || request.destination === 'manifest' || request.destination === 'worker',
+	({ request }) =>
+		request.mode === 'navigate' ||
+		request.destination === 'script' ||
+		request.destination === 'style' ||
+		request.destination === 'manifest' ||
+		request.destination === 'worker',
 	new StaleWhileRevalidate({
 		cacheName: 'StaleWhileRevalidate'
 	})
 )
 
-// mapbox creates its own cache mapbox-tile
+// NOTE:
+// mapbox creates its own cache: mapbox-tile
 // persistentLocalCache has been used for firestore
+
+// For FCM:
+self.addEventListener('push', (e) => {
+	const notif = e.data.json().notification
+	const data = e.data.json().data
+	console.log(notif)
+	console.log(data)
+
+	e.waitUntil(
+		self.registration.showNotification(notif.title, {
+			body: notif.body,
+			icon: notif.image,
+			data: {
+				url: data.url
+			}
+		})
+	)
+})
+
+self.addEventListener('notificationclick', (e) => {
+	e.waitUntil(clients.openWindow(e.notification.data.url))
+})

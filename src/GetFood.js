@@ -1,21 +1,26 @@
-import { firestore, getDocs, collection } from './fb'
+import { firestore, getDocs, collection, getToken, messaging } from './fb'
 import { useRef, useState } from 'react'
-import Map, {
-	NavigationControl,
-	FullscreenControl,
-	GeolocateControl,
-	Marker,
-	Popup
-} from 'react-map-gl'
+import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker, Popup } from 'react-map-gl'
 
 const data = await getDocs(collection(firestore, 'data'))
-for (let i of data.docs) {
-	console.table(i.data())
-}
+// for (let i of data.docs) {
+// 	console.table(i.data())
+// }
 
 function GetFood() {
 	const [selectedMarker, setSelectedMarker] = useState()
 	const geoControlRef = useRef()
+
+	async function handleNotif() {
+		const registration = await navigator.serviceWorker.ready
+
+		// request notification permission from user and retrieve token
+		const token = await getToken(messaging, {
+			serviceWorkerRegistration: registration,
+			vapidKey: 'BLNbbQ0sAtySrC1XbNd7fXc0vaR12_ueRoffdnMiPtjQZnyNGP9uB63x18JIxIPIqpdcFUU2LgAN1hJnJ1jzE9s'
+		})
+		console.log(token)
+	}
 
 	return (
 		<div className='mx-auto my-5 col-11'>
@@ -30,19 +35,12 @@ function GetFood() {
 						zoom: 2
 					}}
 					style={{ width: 'auto', height: '80vh' }}
-					mapStyle={`mapbox://styles/mapbox/${
-						window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-					}-v11`}
+					mapStyle={`mapbox://styles/mapbox/${window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}-v11`}
 					onLoad={() => {
 						geoControlRef.current?.trigger()
 					}}
 				>
-					<GeolocateControl
-						positionOptions={{ enableHighAccuracy: true }}
-						trackUserLocation={true}
-						ref={geoControlRef}
-						showAccuracyCircle={false}
-					/>
+					<GeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} ref={geoControlRef} showAccuracyCircle={false} />
 					<NavigationControl />
 					<FullscreenControl />
 
@@ -52,12 +50,7 @@ function GetFood() {
 						return (
 							<Marker latitude={point.latitude} longitude={point.longitude}>
 								<div style={{ cursor: 'pointer' }} onClick={() => setSelectedMarker(point)}>
-									<img
-										src='/img/mapbox-icon.png'
-										width='50'
-										height='50'
-										className='d-inline-block align-text-top mx-2'
-									/>
+									<img src='/img/mapbox-icon.png' width='50' height='50' className='d-inline-block align-text-top mx-2' />
 								</div>
 							</Marker>
 						)
@@ -78,7 +71,7 @@ function GetFood() {
 				</Map>
 			</div>
 			Get notified about nearby donators
-			<button className='btn btn-md  btn-outline-warning rounded-circle ms-4'>
+			<button className='btn btn-md  btn-outline-warning rounded-circle ms-4' onClick={handleNotif}>
 				<i className='bi bi-bell-fill fs-3'></i>
 			</button>
 		</div>
