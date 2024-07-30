@@ -24,7 +24,8 @@ function GetFood() {
 			})
 
 			// add token and coordinates to firestore
-			addToken({ token: token, latitude: position.coords.latitude, longitude: position.coords.longitude })
+			const res = await addToken({ token: token, latitude: position.coords.latitude, longitude: position.coords.longitude })
+			console.log(res)
 		})
 	}
 

@@ -19,22 +19,24 @@ function GiveFood() {
 		setCoords(e.lngLat)
 	}
 
-	function handleFormSubmit(e) {
+	async function handleFormSubmit(e) {
 		e.preventDefault()
 		const { name, details } = e.target.elements
 
-		console.table({
-			Name: name.value,
-			Location: coords.lat + ' ' + coords.lng,
-			Details: details.value
-		})
+		// console.table({
+		// 	Name: name.value,
+		// 	Location: coords.lat + ' ' + coords.lng,
+		// 	Details: details.value
+		// })
 
-		addLocation({
+		const res = await addLocation({
 			title: name.value,
 			latitude: coords.lat,
 			longitude: coords.lng,
 			description: details.value
 		})
+
+		console.log(res)
 	}
 
 	return (
