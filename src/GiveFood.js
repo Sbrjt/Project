@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker } from 'react-map-gl'
 import { addLocation } from './fb'
+import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker } from 'react-map-gl'
 
 function GiveFood() {
 	const [coords, setCoords] = useState({ lat: null, lng: null })
@@ -29,14 +29,14 @@ function GiveFood() {
 		// 	Details: details.value
 		// })
 
-		const res = await addLocation({
+		const { data } = await addLocation({
 			title: name.value,
 			latitude: coords.lat,
 			longitude: coords.lng,
 			description: details.value
 		})
 
-		console.log(res.msg)
+		console.log(data)
 	}
 
 	return (

@@ -11,10 +11,10 @@ const addToken = https.onCall(async (data, context) => {
 	try {
 		await firestore.collection('tokens').doc().set(data)
 		console.log('New token added: ', JSON.stringify(data))
-		return { msg: 'Subscribed to notifications 🔔' }
+		return 'Subscribed to notifications 🔔'
 	} catch (err) {
 		console.log(err)
-		return { msg: 'Error' }
+		return 'Error'
 	}
 })
 
@@ -29,10 +29,10 @@ const addLocation = https.onCall(async (data, context) => {
 		await firestore.collection('data').doc().set(data)
 		console.log('New record added: ', JSON.stringify(data))
 		sendNotification(data)
-		return { msg: 'Record added 🥳' }
+		return 'Record added 🥳'
 	} catch (err) {
 		console.log(err)
-		return { msg: 'Error' }
+		return 'Error'
 	}
 })
 
