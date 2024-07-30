@@ -36,7 +36,7 @@ function GiveFood() {
 			description: details.value
 		})
 
-		console.log(res)
+		console.log(res.msg)
 	}
 
 	return (

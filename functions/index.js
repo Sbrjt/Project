@@ -11,10 +11,10 @@ const addToken = https.onCall(async (data, context) => {
 	try {
 		await firestore.collection('tokens').doc().set(data)
 		console.log('New token added: ', JSON.stringify(data))
-		return 'Token added 🥳'
+		return { msg: 'Subscribed to notifications 🔔' }
 	} catch (err) {
 		console.log(err)
-		return 'Error'
+		return { msg: 'Error' }
 	}
 })
 
@@ -29,10 +29,10 @@ const addLocation = https.onCall(async (data, context) => {
 		await firestore.collection('data').doc().set(data)
 		console.log('New record added: ', JSON.stringify(data))
 		sendNotification(data)
-		return 'Record added 🥳'
+		return { msg: 'Record added 🥳' }
 	} catch (err) {
 		console.log(err)
-		return 'Error'
+		return { msg: 'Error' }
 	}
 })
 
@@ -60,12 +60,10 @@ async function sendNotification(point) {
 		count++
 	})
 
-	console.log(`Sent ${count} messages`)
+	console.log(`Sent ${count} notifications`)
 	return
 
-	// can't use multicast as the messeges are dynamic
-	// const response = await getMessaging().sendMulticast(msg)
-	// console.log('Notification: ', 'Sent ', response.successCount, ', Fails ', response.failureCount)
+	// can't use multicast as the messages are dynamic :(
 }
 
 export { addLocation, addToken }

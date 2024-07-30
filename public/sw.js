@@ -56,15 +56,12 @@ registerRoute(
 
 // For FCM:
 self.addEventListener('push', (e) => {
-	const notif = e.data.json().notification
-	const data = e.data.json().data
-	console.log(notif)
-	console.log(data)
+	const { notification, data } = e.data.json()
 
 	e.waitUntil(
-		self.registration.showNotification(notif.title, {
-			body: notif.body,
-			icon: notif.image,
+		self.registration.showNotification(notification.title, {
+			body: notification.body,
+			icon: notification.image,
 			data: {
 				url: data.url
 			}
