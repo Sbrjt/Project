@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker } from 'react-map-gl'
-import { test } from './fb'
+import { addLocation } from './fb'
 
 function GiveFood() {
 	const [coords, setCoords] = useState({ lat: null, lng: null })
@@ -9,12 +9,10 @@ function GiveFood() {
 	// find user's coordinates and center the map
 	useEffect(() => {
 		// this code runs only once
-		if ('geolocation' in navigator) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				setCoords({ lat: position.coords.latitude, lng: position.coords.longitude })
-				setMapLoad(true)
-			})
-		}
+		navigator.geolocation.getCurrentPosition((position) => {
+			setCoords({ lat: position.coords.latitude, lng: position.coords.longitude })
+			setMapLoad(true)
+		})
 	}, [])
 
 	function handleMapClick(e) {
@@ -31,10 +29,11 @@ function GiveFood() {
 			Details: details.value
 		})
 
-		test({
-			name: name.value,
-			details: details.value,
-			coords: coords
+		addLocation({
+			title: name.value,
+			latitude: coords.lat,
+			longitude: coords.lng,
+			description: details.value
 		})
 	}
 
@@ -73,16 +72,10 @@ function GiveFood() {
 									height: '80vh',
 									borderRadius: '0.3rem'
 								}}
-								mapStyle={`mapbox://styles/mapbox/${
-									window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-								}-v11`}
+								mapStyle={`mapbox://styles/mapbox/${window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}-v11`}
 								onClick={handleMapClick}
 							>
-								<GeolocateControl
-									positionOptions={{ enableHighAccuracy: true }}
-									trackUserLocation={true}
-									showAccuracyCircle={false}
-								/>
+								<GeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} showAccuracyCircle={false} />
 								<NavigationControl />
 								<FullscreenControl />
 
@@ -94,12 +87,7 @@ function GiveFood() {
 
 				{/* details */}
 				<div className='form-floating my-3'>
-					<textarea
-						className='form-control'
-						placeholder='Leave a comment here'
-						id='details'
-						style={{ height: '100px' }}
-					></textarea>
+					<textarea className='form-control' placeholder='Leave a comment here' id='details' style={{ height: '100px' }}></textarea>
 					<label htmlFor='details'>More details here...</label>
 				</div>
 

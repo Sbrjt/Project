@@ -19,7 +19,8 @@ const provider = new GoogleAuthProvider()
 const firestore = initializeFirestore(app, { localCache: persistentLocalCache({}) })
 const functions = getFunctions(app)
 const messaging = getMessaging(app)
-const test = httpsCallable(functions, 'test')
+const addLocation = httpsCallable(functions, 'addLocation')
+const addToken = httpsCallable(functions, 'addToken')
 
 // for testing with emulator
 if (window.location.hostname === '127.0.0.1') {
@@ -34,12 +35,13 @@ export {
 	collection,
 	getDocs,
 	GoogleAuthProvider,
-	test,
 	signInWithRedirect,
 	signOut,
 	onAuthStateChanged,
 	signInWithCredential,
 	GoogleOneTapLogin,
 	getToken,
-	messaging
+	messaging,
+	addLocation,
+	addToken
 }

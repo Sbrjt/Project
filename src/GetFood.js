@@ -1,6 +1,7 @@
 import { firestore, getDocs, collection, getToken, messaging } from './fb'
 import { useRef, useState } from 'react'
 import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker, Popup } from 'react-map-gl'
+import { addToken } from './fb'
 
 const data = await getDocs(collection(firestore, 'data'))
 // for (let i of data.docs) {
@@ -12,20 +13,26 @@ function GetFood() {
 	const geoControlRef = useRef()
 
 	async function handleNotif() {
-		const registration = await navigator.serviceWorker.ready
+		navigator.geolocation.getCurrentPosition(async (position) => {
+			// get registered sw
+			const sw = await navigator.serviceWorker.ready
 
-		// request notification permission from user and retrieve token
-		const token = await getToken(messaging, {
-			serviceWorkerRegistration: registration,
-			vapidKey: 'BLNbbQ0sAtySrC1XbNd7fXc0vaR12_ueRoffdnMiPtjQZnyNGP9uB63x18JIxIPIqpdcFUU2LgAN1hJnJ1jzE9s'
+			// request notification permission from user and retrieve FCM token
+			const token = await getToken(messaging, {
+				serviceWorkerRegistration: sw,
+				vapidKey: 'BLNbbQ0sAtySrC1XbNd7fXc0vaR12_ueRoffdnMiPtjQZnyNGP9uB63x18JIxIPIqpdcFUU2LgAN1hJnJ1jzE9s'
+			})
+
+			// add token and coordinates to firestore
+			addToken({ token: token, latitude: position.coords.latitude, longitude: position.coords.longitude })
 		})
-		console.log(token)
 	}
 
 	return (
 		<div className='mx-auto my-5 col-11'>
 			<h1>FoodMap</h1>
 			<h4>These places have food around you!</h4>
+			{/* Map */}
 			<div className='my-5'>
 				<Map
 					mapboxAccessToken='pk.eyJ1Ijoic2JyanQiLCJhIjoiY2x5eDhtenhqMTQ5YzJrc2JtZjZxM3F1ZiJ9.4cpjXQC8jPhho1eg47h1rQ'
