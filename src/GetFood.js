@@ -1,12 +1,10 @@
-import { firestore, getDocs, collection, getToken, messaging } from './fb'
 import { useRef, useState } from 'react'
+import { firestore, getDocs, collection, getToken, messaging, addToken } from './fb'
 import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker, Popup } from 'react-map-gl'
-import { addToken } from './fb'
 
+// get all locations data from firestore
 const data = await getDocs(collection(firestore, 'data'))
-// for (let i of data.docs) {
-// 	console.table(i.data())
-// }
+// for (let i of data.docs) {console.table(i.data())}
 
 function GetFood() {
 	const [selectedMarker, setSelectedMarker] = useState()

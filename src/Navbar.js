@@ -45,7 +45,7 @@ function Navbar() {
 								FoodMap
 							</NavLink>
 							<NavLink className='nav-link' to='/give'>
-								Donate
+								Donate Food
 							</NavLink>
 							<Login className='nav-link' />
 							<button className='btn btn-outline-primary' onClick={handleInstall}>
