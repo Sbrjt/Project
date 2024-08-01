@@ -4,13 +4,13 @@ import haversine from 'haversine-distance'
 
 const app = admin.initializeApp()
 const firestore = admin.firestore(app)
-const fcm = admin.messaging()
+const fcm = admin.messaging(app)
 
-// adds fcm token of users in 'token' collection
+// store FCM tokens in firestore (for users who wish to receive notification)
 const addToken = https.onCall(async (data, context) => {
 	try {
-		await firestore.collection('tokens').doc().set(data)
-		console.log('New token added: ', JSON.stringify(data))
+		await firestore.collection('tokens').doc(data.token).set(data)
+		console.log('📝 New token added: ', JSON.stringify(data))
 		return 'Subscribed to notifications 🔔'
 	} catch (err) {
 		console.log(err)
@@ -18,16 +18,16 @@ const addToken = https.onCall(async (data, context) => {
 	}
 })
 
-// adds donor's location to 'data' collection
+// store donor's location in firestore
 const addLocation = https.onCall(async (data, context) => {
 	// if (!context.auth) {
 	// 	throw new https.HttpsError('unauthenticated', 'Please login')
 	// }
 
 	try {
-		data.timestamp = admin.firestore.FieldValue.serverTimestamp()
+		data.timestamp = admin.firestore.FieldValue.serverTimestamp() // Add a firestore server timestamp to the data
 		await firestore.collection('data').doc().set(data)
-		console.log('New record added: ', JSON.stringify(data))
+		console.log('📝 New record added: ', JSON.stringify(data))
 		sendNotification(data)
 		return 'Record added 🥳'
 	} catch (err) {
@@ -36,34 +36,32 @@ const addLocation = https.onCall(async (data, context) => {
 	}
 })
 
-// helper function to send notification when addLocation() is invoked
+// helper function to send push notification when addLocation() is invoked
 async function sendNotification(point) {
 	const docs = await firestore.collection('tokens').get()
 
-	let count = 0
 	docs.forEach((doc) => {
-		// finds distance between donor and current token using haversine formula
+		// find distance between donor and subscribed users using haversine formula
 		const distance = Math.round(haversine(doc.data(), point) / 1000)
 
-		// notif payload
+		// notification payload
 		const msg = {
 			notification: {
 				title: 'Food available nearby',
 				body: `By ${point.title} (${distance}km away)`,
 				image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYv3xmElHnvX4tFyEmQCiMN-A4fdWKJ2X13A&s'
 			},
-			data: { url: 'https://proj3-8bf4f.firebaseapp.com/' },
+			data: { url: 'https://proj3-8bf4f.firebaseapp.com/get' },
 			token: doc.data().token
 		}
 
 		fcm.send(msg)
-		count++
 	})
 
-	console.log(`Sent ${count} notifications`)
+	console.log(`🔔 Initiated ${docs.size} notifications`)
 	return
 
-	// can't use multicast as the messages are dynamic :(
+	// Note: Multicast cannot be used here as the messages are dynamic :(
 }
 
 export { addLocation, addToken }

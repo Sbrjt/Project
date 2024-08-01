@@ -38,7 +38,7 @@ function Navbar() {
 					</div>
 					<div className='offcanvas-body'>
 						<div className='navbar-nav justify-content-end flex-grow-1 pe-3'>
-							<NavLink className='nav-link' to='/home'>
+							<NavLink className='nav-link' to='/'>
 								Home
 							</NavLink>
 							<NavLink className='nav-link' to='/get'>

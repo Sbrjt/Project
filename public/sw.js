@@ -8,9 +8,7 @@ const {
 	precaching: { matchPrecache, precacheAndRoute }
 } = workbox
 
-// // TODO: precache
-
-// // NetworkFirst for mapbox
+// NetworkFirst for mapbox
 registerRoute(
 	({ url }) => url.origin === 'https://api.mapbox.com',
 	new NetworkFirst({

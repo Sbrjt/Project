@@ -17,12 +17,13 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"dev": "concurrently \" firebase emulators:start \" \"watch \\\"npm run build\\\" src\""
+		"dev": "concurrently \" firebase emulators:start \" \"watch \\\"dotenv -e .env.development react-scripts build\\\" src\""
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"@babel/plugin-transform-private-property-in-object": "^7.24.7",
 		"concurrently": "^8.2.2",
+		"dotenv-cli": "^7.4.2",
 		"watch": "^1.0.2"
 	},
 	"browserslist": {

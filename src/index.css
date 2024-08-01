@@ -10,3 +10,12 @@ body {
 .mapboxgl-ctrl-bottom-right {
 	display: none !important;
 }
+
+.home {
+	background-image: url('../public/img/background.svg');
+	background-repeat: no-repeat;
+	background-position: 50% -700px;
+}
+
+hr {
+}

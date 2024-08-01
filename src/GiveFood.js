@@ -40,62 +40,63 @@ function GiveFood() {
 	}
 
 	return (
-		<div className='mx-auto my-5 col-lg-8 col-md-9 col-sm-10 col-11'>
-			<form onSubmit={handleFormSubmit}>
-				<h1>Donate food 🍪</h1>
+		<div className='bg-white'>
+			<div className='mx-auto mt-5 col-lg-8 col-md-9 col-sm-10 col-11'>
+				<form onSubmit={handleFormSubmit}>
+					<h1>Donate food 🍪</h1>
 
-				{/* name */}
-				<div className='input-group my-3'>
-					<span className='input-group-text'>
-						<i className='bi bi-person'></i>
-					</span>
-					<div className='form-floating'>
-						<input className='form-control' id='name' placeholder='' required />
-						<label htmlFor='name'>Name of organisation or person</label>
+					{/* name */}
+					<div className='input-group my-3'>
+						<span className='input-group-text'>
+							<i className='bi bi-person'></i>
+						</span>
+						<div className='form-floating'>
+							<input className='form-control' id='name' placeholder='' required />
+							<label htmlFor='name'>Name of organisation or person</label>
+						</div>
 					</div>
-				</div>
 
-				{/* map */}
-				<div>
+					{/* map */}
 					<div>
-						<p>Pick your location: </p>
+						<div>
+							<p>Pick your location: </p>
+						</div>
+						<div className='mx-auto my-3 border rounded'>
+							{mapLoad && (
+								<Map
+									mapboxAccessToken='pk.eyJ1Ijoic2JyanQiLCJhIjoiY2x5eDhtenhqMTQ5YzJrc2JtZjZxM3F1ZiJ9.4cpjXQC8jPhho1eg47h1rQ'
+									initialViewState={{
+										latitude: coords.lat,
+										longitude: coords.lng,
+										zoom: 15
+									}}
+									style={{
+										width: 'auto',
+										height: '80vh',
+										borderRadius: '0.3rem'
+									}}
+									mapStyle={`mapbox://styles/mapbox/${window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}-v11`}
+									onClick={handleMapClick}
+								>
+									<GeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} showAccuracyCircle={false} />
+									<NavigationControl />
+									<FullscreenControl />
+
+									<Marker longitude={coords.lng} latitude={coords.lat} />
+								</Map>
+							)}
+						</div>
 					</div>
-					<div className='mx-auto my-3 border rounded'>
-						{mapLoad && (
-							<Map
-								mapboxAccessToken='pk.eyJ1Ijoic2JyanQiLCJhIjoiY2x5eDhtenhqMTQ5YzJrc2JtZjZxM3F1ZiJ9.4cpjXQC8jPhho1eg47h1rQ'
-								initialViewState={{
-									latitude: coords.lat,
-									longitude: coords.lng,
-									zoom: 15
-								}}
-								style={{
-									width: 'auto',
-									height: '80vh',
-									borderRadius: '0.3rem'
-								}}
-								mapStyle={`mapbox://styles/mapbox/${window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}-v11`}
-								onClick={handleMapClick}
-							>
-								<GeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} showAccuracyCircle={false} />
-								<NavigationControl />
-								<FullscreenControl />
 
-								<Marker longitude={coords.lng} latitude={coords.lat} />
-							</Map>
-						)}
+					{/* details */}
+					<div className='form-floating my-3'>
+						<textarea className='form-control' placeholder='Leave a comment here' id='details' style={{ height: '100px' }}></textarea>
+						<label htmlFor='details'>More details here...</label>
 					</div>
-				</div>
 
-				{/* details */}
-				<div className='form-floating my-3'>
-					<textarea className='form-control' placeholder='Leave a comment here' id='details' style={{ height: '100px' }}></textarea>
-					<label htmlFor='details'>More details here...</label>
-				</div>
+					<button className='btn btn-lg btn-primary my-3'>Submit</button>
 
-				<button className='btn btn-lg btn-primary my-3'>Submit</button>
-
-				{/*
+					{/*
 				<div className='input-group mb-3'>
 					<span className='input-group-text'>
 						<i className='bi bi-geo-alt'></i>
@@ -168,7 +169,8 @@ function GiveFood() {
 					</div>
 				</div> 
 				*/}
-			</form>
+				</form>
+			</div>{' '}
 		</div>
 	)
 }

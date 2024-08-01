@@ -1,15 +1,16 @@
 function Footer() {
 	return (
 		<>
-			<footer className='footer mt-auto p-3 bg-light'>
-				<span className='text-muted'>
-					{/* <a className='link-body-emphasis link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-50-hover' href='https://github.com/Sbrjt/Project'>
-						Github
-					</a> */}
-					<a href='https://github.com/Sbrjt/Project' className='nav-link'>
+			<footer className='footer mt-auto px-3 px-sm-5'>
+				<div className='d-flex justify-content-between border-top border-2 border-secondary py-3 '>
+					<div>
+						<img src='/img/mascot.svg' height='20' />
+						<span className='mx-3 mx-sm-4 fw-light'>BinaryCoders</span>
+					</div>
+					<a href='https://github.com/Sbrjt/Project' className='link-dark'>
 						<i className='bi bi-github'></i>
 					</a>
-				</span>
+				</div>
 			</footer>
 		</>
 	)

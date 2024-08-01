@@ -9,10 +9,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 function App() {
 	return (
 		<Router>
-			<div className='min-vh-100 d-flex flex-column justify-content-between'>
+			<div className='min-vh-100 d-flex flex-column justify-content-between home'>
 				<Navbar />
 				<Routes>
-					<Route path='/home' element={<Home />} />
+					<Route path='/' element={<Home />} />
 					<Route path='/member' element={<Member />} />
 					<Route path='/get' element={<GetFood />} />
 					<Route path='/give' element={<GiveFood />} />
