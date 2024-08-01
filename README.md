@@ -1,4 +1,4 @@
-Dir structure:
+### Dir structure:
 
     /
     ├── functions/ 
@@ -16,19 +16,24 @@ Dir structure:
     |
     ...
 
+### Installation
 
 To run react server: `npm start`
 
 To firebase emulator: `npm run dev`
 
-To enable firestore local emulator, uncomment `connectFirestoreEmulator` in `src/fb.js`.
-
 [Use location](https://youtu.be/MNlbYwlLPWY): 22.964006, 88.524224
+
+### Tech used
+
+- Firebase
+- Mapbox ([React Map GL](https://visgl.github.io/react-map-gl/))
+- Bootstrap
+- Workbox
+- [Haversine](https://github.com/dcousens/haversine-distance)
 
 ---
 
-https://visgl.github.io/react-map-gl/docs/api-reference/map
-
-https://console.firebase.google.com/u/0/project/proj3-8bf4f/overview
+[Firebase console](https://console.firebase.google.com/u/0/project/proj3-8bf4f/overview)
 
 
