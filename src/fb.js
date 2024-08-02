@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged, signInWithCredential } from 'firebase/auth'
 import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'firebase/functions'
-import { collection, getDocs, persistentLocalCache, initializeFirestore, connectFirestoreEmulator } from 'firebase/firestore'
+import { collection, getDocs, persistentLocalCache, initializeFirestore, connectFirestoreEmulator, onSnapshot, doc } from 'firebase/firestore'
 import { getMessaging, getToken } from 'firebase/messaging'
 import GoogleOneTapLogin from 'react-google-one-tap-login'
 
@@ -34,6 +34,8 @@ export {
 	firestore,
 	collection,
 	getDocs,
+	doc,
+	onSnapshot,
 	GoogleAuthProvider,
 	signInWithRedirect,
 	signOut,

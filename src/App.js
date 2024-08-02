@@ -1,8 +1,8 @@
 import Navbar from './Navbar'
 import Home from './Home'
-import Member from './Member'
 import GetFood from './GetFood'
 import GiveFood from './GiveFood'
+import Member from './Member'
 import Footer from './Footer'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -16,6 +16,7 @@ function App() {
 					<Route path='/member' element={<Member />} />
 					<Route path='/get' element={<GetFood />} />
 					<Route path='/give' element={<GiveFood />} />
+					<Route path='/members' element={<Member />} />
 					<Route path='*' element={<Home />} />
 				</Routes>
 				<Footer />

@@ -1,16 +1,29 @@
-import { useRef, useState } from 'react'
-import { firestore, getDocs, collection, getToken, messaging, addToken } from './fb'
+import { useEffect, useRef, useState } from 'react'
+import { firestore, getDocs, collection, getToken, messaging, addToken, onSnapshot } from './fb'
 import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker, Popup } from 'react-map-gl'
 
 // get all locations data from firestore
-const data = await getDocs(collection(firestore, 'data'))
-// for (let i of data.docs) {
-// 	console.table(i.data())
-// }
+const d = await getDocs(collection(firestore, 'foodmap'))
 
 function GetFood() {
+	const [data, setData] = useState(d)
+
+	useEffect(() => {
+		onSnapshot(collection(firestore, 'foodmap'), (data) => {
+			setData(data)
+		})
+	}, [])
+
 	const [selectedMarker, setSelectedMarker] = useState()
 	const geoControlRef = useRef()
+
+	const id = new URLSearchParams(window.location.search).get('id')
+	useEffect(() => {
+		if (id) {
+			const point = data.docs.find((i) => i.id === id)
+			setSelectedMarker(point.data())
+		}
+	}, [])
 
 	async function handleNotif() {
 		navigator.geolocation.getCurrentPosition(async (position) => {
@@ -25,13 +38,13 @@ function GetFood() {
 
 			// add token and coordinates to firestore
 			const { data } = await addToken({ token: token, latitude: position.coords.latitude, longitude: position.coords.longitude })
-			console.log(res)
+			console.log(data)
 		})
 	}
 
 	return (
 		<div className='bg-white'>
-			<div className='mx-auto mt-5 col-11 '>
+			<div className='mx-auto my-5 col-11 '>
 				<h1>FoodMap</h1>
 				<h4>These places have food around you!</h4>
 				{/* Map */}
@@ -43,7 +56,7 @@ function GetFood() {
 							longitude: 85,
 							zoom: 2
 						}}
-						style={{ width: 'auto', height: '80vh' }}
+						style={{ width: 'auto', aspectRatio: window.innerWidth < 576 ? '1/1' : '2.5/1' }}
 						mapStyle={`mapbox://styles/mapbox/${window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}-v11`}
 						onLoad={() => {
 							geoControlRef.current?.trigger()
@@ -62,7 +75,7 @@ function GetFood() {
 						{data.docs.map((i) => {
 							const point = i.data()
 							return (
-								<Marker latitude={point.latitude} longitude={point.longitude}>
+								<Marker key={i.id} latitude={point.latitude} longitude={point.longitude}>
 									<div style={{ cursor: 'pointer' }} onClick={() => setSelectedMarker(point)}>
 										<img src='/img/mapbox-icon.png' width='50' height='50' className='d-inline-block align-text-top mx-2' />
 									</div>
@@ -84,10 +97,12 @@ function GetFood() {
 						)}
 					</Map>
 				</div>
-				Get notified about nearby donators
-				<button className='btn btn-md  btn-outline-warning rounded-circle ms-4' onClick={handleNotif}>
-					<i className='bi bi-bell-fill fs-3'></i>
-				</button>
+				<div className='d-flex justify-content-between  justify-content-sm-start'>
+					<div className='my-auto '>Get notified about nearby donors</div>
+					<button className='btn btn-outline-warning rounded-circle p-0 m-sm-4 ' style={{ height: '35px', width: '35px' }} onClick={handleNotif}>
+						<i className='bi bi-bell-fill fs-6'></i>
+					</button>
+				</div>
 			</div>
 		</div>
 	)

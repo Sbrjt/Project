@@ -41,10 +41,9 @@ function GiveFood() {
 
 	return (
 		<div className='bg-white'>
-			<div className='mx-auto mt-5 col-lg-8 col-md-9 col-sm-10 col-11'>
+			<div className='mx-auto my-5 col-lg-8 col-md-9 col-sm-10 col-11'>
 				<form onSubmit={handleFormSubmit}>
 					<h1>Donate food 🍪</h1>
-
 					{/* name */}
 					<div className='input-group my-3'>
 						<span className='input-group-text'>
@@ -55,7 +54,6 @@ function GiveFood() {
 							<label htmlFor='name'>Name of organisation or person</label>
 						</div>
 					</div>
-
 					{/* map */}
 					<div>
 						<div>
@@ -70,13 +68,10 @@ function GiveFood() {
 										longitude: coords.lng,
 										zoom: 15
 									}}
-									style={{
-										width: 'auto',
-										height: '80vh',
-										borderRadius: '0.3rem'
-									}}
+									style={{ width: 'auto', aspectRatio: window.innerWidth < 576 ? '1/1' : '2/1', borderRadius: '0.3rem' }}
 									mapStyle={`mapbox://styles/mapbox/${window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}-v11`}
 									onClick={handleMapClick}
+									tabIndex={-1}
 								>
 									<GeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} showAccuracyCircle={false} />
 									<NavigationControl />
@@ -87,15 +82,12 @@ function GiveFood() {
 							)}
 						</div>
 					</div>
-
 					{/* details */}
 					<div className='form-floating my-3'>
 						<textarea className='form-control' placeholder='Leave a comment here' id='details' style={{ height: '100px' }}></textarea>
 						<label htmlFor='details'>More details here...</label>
 					</div>
-
 					<button className='btn btn-lg btn-primary my-3'>Submit</button>
-
 					{/*
 				<div className='input-group mb-3'>
 					<span className='input-group-text'>

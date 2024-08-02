@@ -29,7 +29,7 @@ function Navbar() {
 				<button className='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasNavbar'>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<div className='offcanvas offcanvas-end' tabIndex='-1' id='offcanvasNavbar'>
+				<div className='offcanvas offcanvas-end' id='offcanvasNavbar'>
 					<div className='offcanvas-header'>
 						<h5 className='offcanvas-title' id='offcanvasNavbarLabel'>
 							Offcanvas

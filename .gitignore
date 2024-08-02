@@ -15,6 +15,7 @@
 # firebase
 .firebase
 firebase-debug.log
+firestore-debug.log
 debug.log
 ui-debug.log
 

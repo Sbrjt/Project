@@ -9,12 +9,12 @@ const {
 } = workbox
 
 // NetworkFirst for mapbox
-registerRoute(
-	({ url }) => url.origin === 'https://api.mapbox.com',
-	new NetworkFirst({
-		cacheName: 'NetworkFirst'
-	})
-)
+// registerRoute(
+// 	({ url }) => url.origin === 'https://api.mapbox.com',
+// 	new NetworkFirst({
+// 		cacheName: 'NetworkFirst'
+// 	})
+// )
 
 // // CacheFirst for images, bs, fonts
 registerRoute(
