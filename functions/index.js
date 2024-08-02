@@ -53,7 +53,7 @@ async function sendNotification(new_location) {
 				image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYv3xmElHnvX4tFyEmQCiMN-A4fdWKJ2X13A&s'
 			},
 			data: { url: `https://proj3-8bf4f.firebaseapp.com/get?id=${new_location.id}` },
-			token: doc.data().token
+			token: doc.id
 		}
 
 		fcm.send(msg)
