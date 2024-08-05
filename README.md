@@ -1,20 +1,20 @@
 ### Dir structure:
 
-    /
-    ├── functions/ 
-    │   └── index.js        (contains firebase cloud functions)
-    |
-    ├── src/                (react's src dir)
-    │   ├── fb.js           (initializes firebase)
-    │   ├── App.js
-    │   ├── Other components
-    │   └── ...
-    |
-    ├── public/             (react's public dir)
-    |
-    ├── build/              (firebase hosting dir; contains minified production build)
-    |
-    ...
+      /
+      ├── functions/ 
+      │   └── index.js        (contains firebase cloud functions)
+      |
+      ├── src/                (react's src dir)
+      │   ├── fb.js           (initializes firebase)
+      │   ├── App.js
+      │   ├── Other components
+      │   └── ...
+      |
+      ├── public/             (react's public dir)
+      |
+    + ├── build/              (firebase hosting dir; contains minified production build)
+      |
+      ...
 
 ### Installation
 
@@ -26,6 +26,7 @@ To firebase emulator: `npm run dev`
 
 ### Tech used
 
+- React
 - Firebase
 - Mapbox ([React Map GL](https://visgl.github.io/react-map-gl/))
 - Bootstrap
