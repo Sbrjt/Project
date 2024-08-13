@@ -1,10 +1,10 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Navbar from './Navbar'
 import Home from './Home'
 import GetFood from './GetFood'
 import GiveFood from './GiveFood'
 import Member from './Member'
 import Footer from './Footer'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
 	return (

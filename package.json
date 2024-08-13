@@ -15,15 +15,18 @@
 		"react-scripts": "5.0.1"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"dev": "concurrently \" firebase emulators:start \" \"watch \\\"dotenv -e .env.development react-scripts build\\\" src\""
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build",
+		"test": "react-app-rewired test"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"@babel/plugin-transform-private-property-in-object": "^7.24.7",
+		"@preact/signals-react-transform": "^0.4.0",
 		"concurrently": "^8.2.2",
+		"customize-cra": "^1.0.0",
 		"dotenv-cli": "^7.4.2",
+		"react-app-rewired": "^2.2.1",
 		"watch": "^1.0.2"
 	},
 	"browserslist": {

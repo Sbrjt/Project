@@ -26,26 +26,33 @@ function Navbar() {
 					<img src='/img/logo512.png' width='24' height='24' className='d-inline-block align-text-top mx-2' />
 					Prototype
 				</a>
-				<button className='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasNavbar'>
-					<span className='navbar-toggler-icon'></span>
+				<button className='navbar-toggler border-0 px-2' style={{ zIndex: 1046 }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasNavbar'>
+					<span className='icon-bar top-bar'></span>
+					<span className='icon-bar middle-bar'></span>
+					<span className='icon-bar bottom-bar'></span>
 				</button>
-				<div className='offcanvas offcanvas-end' id='offcanvasNavbar'>
+				<div className='offcanvas offcanvas-end' id='offcanvasNavbar' tabIndex='-1'>
 					<div className='offcanvas-header'>
 						<h5 className='offcanvas-title' id='offcanvasNavbarLabel'>
 							Offcanvas
 						</h5>
-						<button type='button' className='btn-close' data-bs-dismiss='offcanvas'></button>
 					</div>
 					<div className='offcanvas-body'>
 						<div className='navbar-nav justify-content-end flex-grow-1 pe-3'>
 							<NavLink className='nav-link' to='/'>
-								Home
+								<p className='m-0' data-bs-dismiss='offcanvas'>
+									Home
+								</p>
 							</NavLink>
 							<NavLink className='nav-link' to='/get'>
-								FoodMap
+								<p className='m-0' data-bs-dismiss='offcanvas'>
+									FoodMap
+								</p>
 							</NavLink>
 							<NavLink className='nav-link' to='/give'>
-								Donate Food
+								<p className='m-0' data-bs-dismiss='offcanvas'>
+									Donate Food
+								</p>
 							</NavLink>
 							<Login className='nav-link' />
 							<button className='btn btn-outline-primary' onClick={handleInstall}>

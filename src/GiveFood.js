@@ -1,42 +1,20 @@
-import { useEffect, useState } from 'react'
+import DonateMap, { coords } from './DonateMap'
 import { addLocation } from './fb'
-import Map, { NavigationControl, FullscreenControl, GeolocateControl, Marker } from 'react-map-gl'
 
 function GiveFood() {
-	const [coords, setCoords] = useState({ lat: null, lng: null })
-	const [mapLoad, setMapLoad] = useState(false)
-
-	// find user's coordinates and center the map
-	useEffect(() => {
-		// this code runs only once
-		navigator.geolocation.getCurrentPosition((position) => {
-			setCoords({ lat: position.coords.latitude, lng: position.coords.longitude })
-			setMapLoad(true)
-		})
-	}, [])
-
-	function handleMapClick(e) {
-		setCoords(e.lngLat)
-	}
-
 	async function handleFormSubmit(e) {
 		e.preventDefault()
 		const { name, details } = e.target.elements
 
-		// console.table({
-		// 	Name: name.value,
-		// 	Location: coords.lat + ' ' + coords.lng,
-		// 	Details: details.value
-		// })
-
-		const { data } = await addLocation({
+		const res = await addLocation({
 			title: name.value,
-			latitude: coords.lat,
-			longitude: coords.lng,
+			latitude: coords.value.lat,
+			longitude: coords.value.lng,
 			description: details.value
 		})
 
-		console.log(data)
+		console.log(res.data)
+		console.table({ title: name.value, latitude: coords.value.lat, longitude: coords.value.lng, description: details.value })
 	}
 
 	return (
@@ -60,26 +38,7 @@ function GiveFood() {
 							<p>Pick your location: </p>
 						</div>
 						<div className='mx-auto my-3 border rounded'>
-							{mapLoad && (
-								<Map
-									mapboxAccessToken='pk.eyJ1Ijoic2JyanQiLCJhIjoiY2x5eDhtenhqMTQ5YzJrc2JtZjZxM3F1ZiJ9.4cpjXQC8jPhho1eg47h1rQ'
-									initialViewState={{
-										latitude: coords.lat,
-										longitude: coords.lng,
-										zoom: 15
-									}}
-									style={{ width: 'auto', aspectRatio: window.innerWidth < 576 ? '1/1' : '2/1', borderRadius: '0.3rem' }}
-									mapStyle={`mapbox://styles/mapbox/${window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}-v11`}
-									onClick={handleMapClick}
-									tabIndex={-1}
-								>
-									<GeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} showAccuracyCircle={false} />
-									<NavigationControl />
-									<FullscreenControl />
-
-									<Marker longitude={coords.lng} latitude={coords.lat} />
-								</Map>
-							)}
+							<DonateMap />
 						</div>
 					</div>
 					{/* details */}

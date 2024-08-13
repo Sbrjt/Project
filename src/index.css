@@ -16,3 +16,32 @@ body {
 	background-repeat: no-repeat;
 	background-position: 50% -700px;
 }
+
+/* For navbar hamburger to X animation */
+
+.icon-bar {
+	display: block;
+	width: 30px;
+	height: 4px;
+	background-color: #b6b6b6;
+	border-radius: 2px;
+	margin: 4px;
+}
+
+.icon-bar {
+	transition: all 0.2s;
+}
+
+:has(#offcanvasNavbar.show) .top-bar {
+	transform: rotate(45deg);
+	transform-origin: 10% 10%;
+}
+
+:has(#offcanvasNavbar.show) .middle-bar {
+	opacity: 0;
+}
+
+:has(#offcanvasNavbar.show) .bottom-bar {
+	transform: rotate(-45deg);
+	transform-origin: 10% 90%;
+}
